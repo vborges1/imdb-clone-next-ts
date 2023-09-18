@@ -9,7 +9,7 @@ export default async function Home({ searchParams }: any ) {
   )
   
   if (!res.ok) {
-    throw new Error(`Failed to fetch data`);
+    throw new Error(`Não foi possível consultar`);
   }
 
   const data = await res.json()
