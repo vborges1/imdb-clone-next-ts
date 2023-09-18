@@ -1,4 +1,4 @@
-## NextJS - Pokedex
+## NextJS - IMDb Clone
 
 IMDb Clone - feita em NextJS
 
