@@ -15,5 +15,6 @@ export interface IResult {
     release_date: any,
     vote_average: any,
     vote_count: number,
-    origin_country: string[]
+    origin_country: string[],
+    success?: boolean
 }
