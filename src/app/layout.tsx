@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Providers from './providers'
 import Header from '@/components/Header'
 import Navbar from '@/components/Navbar'
+import SearchBox from '@/components/SearchBox'
 
 export const metadata: Metadata = {
   title: 'IMDb Clone',
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <Navbar />
+          <SearchBox />
           {children}
         </Providers>
       </body>
