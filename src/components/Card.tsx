@@ -4,6 +4,8 @@ import Link from "next/link"
 import { FiThumbsUp } from 'react-icons/fi'
 
 export default function Card({ result }: { result: IResult }) {
+    const date = new Date(result.release_date ?? result.first_air_date);
+    
     return (
         <div key={result.id} className="cursor-pointer sm:p-3 sm:hover:shadow-slate-400 sm:shadow-md rounded-lg sm:border sm:border-slate-400 sm:m-2 transition-shadow duration-200 group">
             <Link href={`/movie/${result.id}`}>
@@ -23,7 +25,7 @@ export default function Card({ result }: { result: IResult }) {
                     <p className="line-clamp-2 text-md">{result.overview}</p>
                     <h2 className="truncate text-lg font-bold">{result.title ?? result.name}</h2>
                     <p className="flex items-center">
-                        {result.release_date ?? result.first_air_date}
+                        {date.toLocaleDateString()}
                         <FiThumbsUp className="h-5 mr-1 ml-3" /> 
                         {result.vote_count}
                     </p>

@@ -5,13 +5,14 @@ import Image from "next/image"
 const API_KEY = process.env.API_KEY
 
  async function getMovie(movieId: string) {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`)
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=pt-BR`)
     return await res.json()
 }
 
 export default async function MoviePage({ params }: searchMovie) {
     const movie: IResult = await getMovie(params.id)
-    
+    const date = new Date(movie.release_date ?? movie.first_air_date);
+
     return (
         <div className="w-full">
             <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center max-w-6xl mx-auto md:space-x-6">
@@ -38,7 +39,7 @@ export default async function MoviePage({ params }: searchMovie) {
                     </p>
                     <p className="mb-3">
                         <span className="font-semibold mr-1">Data de lançamento:</span>
-                        {movie.release_date ?? movie.first_air_date}
+                        {date.toLocaleDateString()}
                     </p>
                     <p className="mb-3">
                         <span className="font-semibold mr-1">Avaliação:</span>
